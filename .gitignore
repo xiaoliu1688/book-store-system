@@ -1,0 +1,5 @@
+# Project exclude paths
+/bookstoreV02/web/WEB-INF/classes/
+/JavaWebDay06-Login/web/WEB-INF/classes/
+/out/
+/WebDay08-crud-02/web/WEB-INF/classes/

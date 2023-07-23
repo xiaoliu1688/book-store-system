@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <div id="app">
+        <table border="1" cellspacing="0" width="500">
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>学历</th>
+            </tr>
+            <tr v-for="(person,index) in person" :value="index">
+                <td>{{index + 1}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.age}}</td>
+                <td>{{person.xue}}</td>
+            </tr>
+
+        </table>
+    </div>
+
+    <script>
+        var vue = new Vue({
+            "el":"#app",
+            "data":{
+                "person":[
+                    {"name":"张三","age":38,"xue":"本科"},
+                    {"name":"李四","age":28,"xue":"本科"},
+                    {"name":"王五","age":18,"xue":"专科"}
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+    <book id="1">
+        <name>西游记</name>
+        <author>吴承恩</author>
+        <price>100.0元</price>
+    </book>
+    <book id="2">
+        <name>红楼梦</name>
+        <author>曹雪芹</author>
+        <price>200.0元</price>
+    </book>
+    <book id="3">
+        <name>聊斋志异</name>
+        <author>蒲松龄</author>
+        <price>300.0元</price>
+    </book>
+    <book id="4">
+        <name>金瓶梅</name>
+        <author>兰陵笑笑生</author>
+        <price>2000.0元</price>
+    </book>
+    <paper id="5">
+        <date>2008年2月23日</date>
+        <news>艳照门爆发</news>
+    </paper>
+    <paper id="6">
+        <date>1990年2月22日</date>
+        <news>李维横空出世</news>
+    </paper>
+</books>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>侦听属性</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>尊姓：{{firstName}}</p>
+        <p>大名：{{lastName}}</p>
+
+        <!--
+            目标:当输入框中的firstName和lastName发生改变时，同时修改fullName的值
+        -->
+        尊姓：<input type="text" v-model="firstName" /><br/>
+        大名：<input type="text" v-model="lastName" /><br/>
+        <p>全名：{{fullName}}</p>
+    </div>
+
+    <script>
+        var vue = new Vue({
+            "el":"#app",
+            "data":{
+                "firstName":"jim",
+                "lastName":"green",
+                "fullName":"jim green"
+            },
+            "watch":{
+                //当firstName改变时，调用此函数
+                "firstName":function (inputValue) {
+                    //监听器的形参就是被监听的数据模型改变后的值
+                    this.fullName = inputValue+" "+this.lastName
+                },
+                "lastName":function (inputValue) {
+                    this.fullName = this.firstName + " "+inputValue
+                }
+            }
+        });
+    </script>
+</body>
+</html>

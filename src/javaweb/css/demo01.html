@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第一次测试</title>
+    <style type="text/css">
+        /*被style标签圈住的时css环境，可以写css代码*/
+        /*标签样式表*/
+        p{
+            color: red;
+        }
+
+        /*类样式*/
+        .blue{
+            color: blue;
+        }
+        /*id样式*/
+
+        #w4{
+            background: chartreuse;     /*背景颜色*/
+            font-size: 24px;            /*设置字体大小，xp时像素单位*/
+            font-weight: bolder;        /*设置字体，将字体设置为粗体*/
+            font-style: italic;         /*将字体设置为斜体*/
+            font-family: "华文彩云";    /*将字体设置成什么字体*/
+        }
+
+        div p{
+            color: blueviolet;
+        }
+        span{
+            color: chocolate;
+        }
+
+        .a1{
+            width: 56px;
+            height: 56px;
+            background-color: chocolate;
+        }
+
+        #div1{
+            background-color: chocolate;
+        }
+        #div2{
+            background-color: blueviolet;
+        }
+        #div3{
+            background-color: chartreuse;
+        }
+
+        #div4{
+            background-color: red;
+        }
+
+    </style>
+
+</head>
+<body>
+    <!--<p><font color="blue">这是第一个段落</font></p>
+    <p><font color="blue">这是第一个段落</font></p>
+    -->
+    <p class="blue">这是一个段落</p>
+    <p class="blue">这是一个段落</p>
+    <p id="w4">这是一个段落</p>
+    <p>这是一个段落</p>
+
+    <div>
+        <p><span>div的测试</span></p>
+        <p>div的测试</p>
+    </div>
+
+    <div class="a1">
+        &nbsp;
+    </div>
+    <br/>
+
+
+    <div id="div1">1</div>
+    <div id="div2">2</div>
+    <div id="div3">3</div>
+    <div id="div4">4</div>
+
+</body>
+</html>
+<!--
+    css盒子模型
+    border：边框
+    margin：间距
+    padding：填充
+
+    css最基本的分类：标签样式表、类样式表，id样式表
+    按照位置的分类：内部样式、外部样式、嵌入式样式
+-->

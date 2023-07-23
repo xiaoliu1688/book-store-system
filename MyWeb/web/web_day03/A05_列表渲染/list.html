@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+            <!--
+                使用v-for进行绑定:
+                    1. v-for写在哪里? 你遍历出来一个数据就要添加一个什么标签，那么v-for就写在哪里
+                    2. v-for的值写什么? (遍历出来的内容,下标) in 要遍历的数据模型
+            -->
+            <ul>
+<!--                相当于一个for循环，把fruit数组的内容遍历-->
+                <li v-for="(fruit,index) in fruit" :value="index">{{fruit}}</li>
+            </ul>
+    </div>
+    <script>
+        var vue = new Vue({
+            "el":"#app",
+            "data":{
+                "fruit":[
+                    "apple",
+                    "banana",
+                    "orange",
+                    "grape",
+                    "dragonfruit"
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

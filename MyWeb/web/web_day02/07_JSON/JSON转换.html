@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON转换</title>
+</head>
+<body>
+    <script>
+        var person = {
+            "name":"张三疯",
+            "age":189,
+            "address":"武当山"
+        }
+        //person对于js而言是一个对象
+        //将JSON对象转成字符串
+        var str = JSON.stringify(person);
+
+        //假设str是服务器端传输到我们客户端的,我们在拿到服务器端传输过来的json字符串之后，需要将其转成JSON对象才能解析出数据
+        var p = JSON.parse(str);
+        console.log(p.name)
+    </script>
+</body>
+</html>

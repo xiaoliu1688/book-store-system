@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS的事件驱动</title>
+</head>
+        <body>
+        <!--
+            什么是事件驱动: 让文档中的标签能响应用户的交互动作
+            事件驱动中的要素:
+                1. 事件源: 事件发生在哪?
+                2. 事件类型: 用户的交互动作是什么?
+                3. 事件源于事件类型进行绑定: 要给谁绑定一个什么事件
+                4. 绑定之后，当事件触发我们要指定执行的函数
+        -->
+        <button onclick="fun1()">按钮一</button>
+        <button id="bnt1">按钮二</button>
+
+        <script>
+
+            function fun1(){
+                alert("我是你爹");
+            }
+            //另一种绑定事件的方式：动态绑定,使用js代码进行事件 绑定
+            //也称之为匿名函数绑定事件
+            var elementById = document.getElementById("bnt1");
+            elementById.onclick = function(){
+                alert("我是你大爷");
+            }
+
+        </script>
+        </body>
+</html>

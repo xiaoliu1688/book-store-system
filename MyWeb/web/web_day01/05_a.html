@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>超链接标签的介绍</title>
+</head>
+<body>
+<!--
+    超链接标签a的作用: 进行资源跳转
+        href: 你要跳转到的资源的路径
+        target: 新页面的打开方式
+-->
+<!--
+    1. 跳转到本项目的资源: 使用相对路径
+        相对路径: 以当前路径作为基准，如果资源跟我说同一个目录下的则直接写资源名就行了
+                如果在不同目录下，要找上一级目录，则使用../
+
+                . 当前目录
+                .. 上一级目录
+    2. 跳转到其它服务器的资源: 此时就要使用完整的url访问路径
+-->
+
+<!--
+    使用相对路径
+-->
+<a href="../01_html的入门/start.html">跳转到start.html页面</a><br/>
+
+<!--
+    绝对路径: 以/开头，从服务器的根路径开始写
+    其实就是在完整的url的基础之上省略 http://服务器的主机地址:端口号
+-->
+<a href="/atguigu0323/webday01_html_01/01_html的入门/start.html">跳转到start.html页面</a><br/>
+
+<!--
+    target属性表示新页面的打开方式，我们目前只需要掌握两种取值:
+        _self 表示新页面在当前页面打开
+        _blank 表示新页面会新打开一个标签页
+-->
+<a href="https://www.baidu.com" target="_blank">跳转到百度</a>
+</body>
+</html>

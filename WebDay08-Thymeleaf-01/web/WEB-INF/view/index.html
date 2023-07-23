@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+</head>
+<body>
+<!--
+    th:href= "@{}" 表示解析的项目部署名，这里是用绝对地址去访问的TestThymeleaf
+-->
+    <a th:href="@{/TestThymeleaf(username='tom',team='刘队',team='垃圾队')}">点击跳转到指定的地点</a>
+</body>
+</html>

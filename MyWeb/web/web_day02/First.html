@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript的入门</title>
+    <script src="../web_day02/js/outer.js"></script>
+</head>
+<body>
+    <!-- 在HTML代码中定义一个按钮 -->
+    <button type="button" id="bnt">不要点击</button>
+    <!--
+        目标: 点击按钮的时候弹出一个警告框
+    -->
+    <script type="text/javascript">
+        //1. 通过js代码获取到按钮对象
+        //document代表当前HTML文档
+        var bnt = document.getElementById("bnt");
+        //2. 给获取到的btn对象绑定点击事件
+        bnt.onclick = function () {
+            //弹出警告框
+            showHello();
+            alert("我是你爹");
+        }
+    </script>
+</body>
+</html>

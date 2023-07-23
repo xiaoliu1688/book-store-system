@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>士兵展示界面</title>
+</head>
+<body>
+<table border="1" cellspacing="0" width="800">
+    <tr>
+        <th>士兵编号</th>
+        <th>士兵姓名</th>
+        <th>士兵武器</th>
+        <th>删除士兵</th>
+        <th>修改士兵</th>
+    </tr>
+    <tbody th:if="${#lists.isEmpty(SoldierList)}">
+    <tr>
+        <td th:colspan="5">没有士兵信息</td>
+    </tr>
+    </tbody>
+    <tbody th:unless="${#lists.isEmpty(SoldierList)}">
+    <tr th:each="soldier : ${SoldierList}">
+        <td th:text="${soldier.soldierId}">士兵编号</td>
+        <td th:text="${soldier.soldierName}">士兵姓名</td>
+        <td th:text="${soldier.soldierWeapon}">士兵武器</td>
+        <td><a th:href="@{/soldier(method = 'toDelete',id=${soldier.soldierId} )}">删除信息</a></td>
+        <td><a th:href="@{/soldier(method = 'toUpDate',id=${soldier.soldierId})}">修改信息</a></td>
+    </tr>
+    </tbody>
+    <tfoot>
+    <tr>
+        <td th:colspan="5">
+            <a th:href="@{/soldier(method = 'toAdd')}">添加士兵</a>
+        </td>
+    </tr>
+    </tfoot>
+</table>
+</body>
+</html>

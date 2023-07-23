@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>表单标签</title>
+</head>
+<body>
+    <form action="demo04.html" method="post">    <!--缺省的方式是get，该方式会使得密码暴露，不推荐-->
+                                        <!-- 此处👇value表示默认的文本框内容-->
+        昵称：<input type="text"  name="nickName" value="请输入你的昵称"/><br/>
+        密码：<input type="password" name="password"/><br/>
+        性别：<input type="radio" name="genre" value="man" checked/>男  <!--checked表示默认选中-->
+              <input type="radio" name="genre" value="woman"/>女<br/>
+        爱好：<input type="checkbox" name="hobby" value="basketball"/>篮球
+              <input type="checkbox" name="hobby" value="football"/>足球
+              <input type="checkbox" name="hobby" value="ping-pang ball"/>乒乓球<br/>
+        生肖：<select name="star">
+                    <option value="1">牛</option>
+                    <option value="2" selected>虎</option>  <!--selected表示默认选中-->
+                    <option value="3">兔</option>
+                    <option value="4">龙</option>
+                    <option value="5">蛇</option>
+             </select><br/>
+        备注：<textarea name="remark" rows="4" cols="50"></textarea><br/> <!--此处的rows和cols分别表示几行和每行多少字符-->
+        <input type="submit" value="注册"/>
+        <input type="reset" value="重置"/>
+        <input type="button" value="这是一个普通按钮"/>
+    </form>
+</body>
+</html>
+<!--
+
+
+    input type = "text"表示文本框，其中name属性必须要指定
+    input type = "password"表示密码框
+    input type = "radio"表示互斥的单选按钮，注意需要name属性保持一致才有互斥的效果，可以用checked默认选中属性，value属性是发给服务器的值
+    input type = "checkbox"表示复选框，name属性保持一致，这样我们服务器获取值的时候是一个数组，value属性是发给服务器的值
+    select 表示的是一个下拉列表，每一个选项是一个option，其中的value属性是发给服务器的值，selected表示默认选中的值
+    textarea表示多行文本框，他的value值就是开始标签的结束标签的值
+    input type="submit" 提交按钮
+    input type="reset" 重置按钮，回到初始化界面
+    input type="button" 这是一个普通按钮
+-->

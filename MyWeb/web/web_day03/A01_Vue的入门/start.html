@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue的入门</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>{{message}}</div>
+    </div>
+    <!--
+        使用vue获取div中的内容，以及设置div中的内容
+        使用vue的具体步骤:
+            1. 指定一个区域，在该区域中使用vue
+            2. 在该区域下方编写一个script标签，在script标签中创建Vue对象
+            3. 以json格式给Vue对象传入需要传入的参数
+                1. "el" 表示哪块区域可以使用vue
+                2. "data" 表示你需要定义的数据模型
+            4. 将message这个数据模型绑定给div的标签体: 使用插值表达式进行绑定
+    -->
+    <script>
+        var vue = new Vue({
+            "el":"#app",
+            "data":{
+                "message":"hello world!",        //定义了一个数据模型，该数据模型的名字叫"message"-->
+                "name":"你好世界"
+            }
+        });
+    </script>
+
+
+
+
+</body>
+</html>

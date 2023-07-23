@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>目标页面</title>
+</head>
+<body>
+<!--     th:text的作用，服务器解析之前，是显示的标签的文字，
+                        服务器解析之后，thymeleaf引擎根据th:text属性指定的去替换，显示的是动态的name内容-->
+<!--    使用thymeleaf修改标签体的文本内容-->
+    <p th:text="${name}">这个数据是动态的</p>
+
+<!--    使用thymeleaf修改标签的属性-->
+    <input type="text" name="username" th:value="${name}" value="刘翰林">
+
+<!--    使用thymeleaf解析url地址
+        @{}表示的是项目名
+-->
+<!--        这里因为是通过的访问TestThymeleafServlet访问的
+
+            可以附带参数,这里是a标签跳转不是发请求，所以username里面的值还有效-->
+    <a th:href="@{/index(username=${username},password='123456')}">访问index.html</a></br>
+
+<!--
+        取出请求域中的值
+        ${请求域的name}
+    -->
+
+    <p th:text="${name}"></p>
+
+<!--
+        取出会话域中的值
+        ${session.会话域的name}
+    -->
+    <p th:text="${session.session}"></p>
+
+<!--
+        取出全局域中的值
+        ${application.全局域的name}
+    -->
+    <p th:text="${application.all}"></p>
+
+<!--
+        在Thymeleaf中根据参数名获取一个请求参数
+        ${param.参数名}
+    -->
+    <p th:text="${param.username}">Thymeleaf参数</p>
+    <p th:text="${param.team[0]}"></p>
+    <p th:text="${param.team[1]}"></p>
+
+    <!--
+        使用Thymeleaf的基本内置对象: request
+        符号，#
+    -->
+    <p th:text="${#request.getContextPath()}">获取项目部署名</p>
+    <p th:text="${#request.getAttribute('name')}">获取请求域中的内容</p>
+
+<!--
+       使用Thymeleaf中的公共内置对象: lists
+   -->
+
+    <p th:text="${#lists.isEmpty(aNotnullList)}"></p>
+    <p th:text="${#lists.isEmpty(aNullList)}"></p>
+
+<!--
+        使用OGNL获取数据
+        ##### 2.6.3 OGNL语法
+
+###### 2.6.3.1 起点
+
+在Thymeleaf环境下，${}中的表达式可以从下列元素开始：
+
+- 访问属性域的起点
+  - 请求域属性名
+  - session
+  - application
+- param
+- 内置对象
+  - request
+  - session
+  - lists
+  - strings
+
+###### 2.6.3.2 属性访问语法
+
+- 访问对象属性：使用getXxx()、setXxx()方法定义的属性
+  - 对象.属性名
+- 访问List集合或数组
+  - 集合或数组[下标]
+- 访问Map集合
+  - Map集合.key
+  - Map集合['key']
+    -->
+
+    <p th:text="${student.studentName}">获取student的名字</p>
+    <p th:text="${student.subject.subjectName}">获取student的学科名字</p>
+    <p th:text="${student.schoolList[1].schoolName}">获取student的第二个学校的名字</p>
+    <p th:text="${student.teacherMap.teacherKey.teacherName}">获取student的老师的名字</p>
+
+
+<!--
+    th:if如果它的值为true，那么就显示这个标签
+
+    th:unless 如果它的值为false则显示这个标签
+-->
+    <p th:if="${#lists.isEmpty(teacherList)}">没有数据</p>
+    <p th:unless="${#lists.isEmpty(teacherList)}">有数据</p>
+
+<!--
+        使用th:switch
+    -->
+    <div th:switch="${user.memberLevel}">
+        <p th:case="lever-A">金牌会员</p>
+        <p th:case="lever-B">银牌会员</p>
+        <p th:case="lever-C">铜牌会员</p>
+    </div>
+
+<!--遍历显示请求域中的teacherList-->
+    <table border="1" cellspacing="0" width="500">
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+        </tr>
+        <tbody th:if="${#lists.isEmpty(teacherList)}">
+            <tr>
+                <td colspan="2">教师的集合是空的!!!</td>
+            </tr>
+        </tbody>
+
+        <!--
+            集合不为空，遍历展示数据
+        -->
+        <tbody th:unless="${#lists.isEmpty(teacherList)}">
+            <tr th:each="teacher,status : ${teacherList}">
+                <td th:text="${status.index}">这里显示编号</td>
+                <td th:text="${teacher.teacherName}">这里显示名字</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

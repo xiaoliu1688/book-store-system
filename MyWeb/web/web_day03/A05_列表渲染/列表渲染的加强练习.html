@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表渲染的加强练习</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <table border="1" cellspacing="0" width="500">
+            <tr>
+                <th>序号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>地址</th>
+            </tr>
+            <tr v-for="(person,index) in userList">
+                <td>{{index+1}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.age}}</td>
+                <td>{{person.address}}</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        var vue = new Vue({
+           "el":"#app",
+           "data":{
+               "userList":[
+                   {"name":"张三","age":18,"address":"深圳"},
+                   {"name":"李四","age":28,"address":"广州"},
+                   {"name":"王五","age":48,"address":"惠州"}
+               ]
+           }
+        });
+    </script>
+</body>
+</html>

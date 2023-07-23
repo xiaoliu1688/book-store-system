@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>精确匹配和模糊匹配</title>
+</head>
+<body>
+    <script>
+        var str = "helloworlda"
+
+        //字符串是否包含'l'
+        var reg1 = /l/      //正则表达式
+        console.log(reg1.test(str))
+
+        //字符串是否以l结尾
+        var reg2 = /l$/
+        console.log(reg2.test(str))
+
+        //字符串是否以l开头
+        var reg3 = /^l/
+        console.log(reg3.test(str))
+
+        //模糊匹配
+        // var reg4 = /[a-zA-Z]{11}
+        //是否包含大于或者等于11个字母
+//****************************************************
+        //精确匹配
+        //判断一个字符串是否有且只有11个字母
+        var reg4 = /^[a-zA-Z]{11}$/
+        console.log(reg4.test(str))
+    </script>
+</body>
+</html>

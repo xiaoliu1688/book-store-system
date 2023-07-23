@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON的介绍</title>
+</head>
+<body>
+    <script>
+        //json的格式: {key:value,key:value}
+        var person1 = {
+            "name":"张三疯",
+            "age":189,
+            "address":"武当山"
+        }
+        //其实JSON对于前端而言，就是一个对象
+        //console.log(person1.name)
+
+        var person2 = {
+            "name":"张三疯",
+            "age":189,
+            "address":"武当山",
+            "wife":{
+                "name":"小花",
+                "age":18,
+                "address":"武当山下的小村庄"
+            }
+        }
+        //console.log(person2.wife.name)
+
+        var person3 = {
+            "name":"张三疯",
+            "age":189,
+            "address":"武当山",
+            "wife":{
+                "name":"小花",
+                "age":18,
+                "address":"武当山下的小村庄"
+            },
+            "sons":[
+                {
+                    "name":"奥巴马",
+                    "age":1,
+                    "address":"武当山"
+                },
+                {
+                    "name":"奥拉夫",
+                    "age":2,
+                    "address":"少林寺"
+                }
+            ]
+        }
+
+        //json数组的格式: [{key:value,key:value},{key:value,key:value}]
+        //var personList = [person1,person2]
+    </script>
+</body>
+</html>

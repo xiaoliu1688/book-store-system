@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式的入门</title>
+</head>
+<body>
+    <script>
+        //匹配验证: 校验一个字符串中是否包含'o'字母
+        var str = "hello worLd"
+        //1. 编写一个用于校验的正则表达式
+        var reg1 = /o/
+        //2. 使用正则表达式去校验字符串
+        //console.log(reg1.test(str))
+
+        //匹配读取: 读取一个字符串中的所有'l'字母
+        // g表示全文查找,如果不使用g那么就只能查找到第一个匹配的内容
+        // i表示ignore忽略大小写，如果不使用i就表示精确区分大小写，加了i就不区分大小写
+        //1. 编写一个正则表达式
+        var reg2 = /l/gi
+        //2. 使用正则表达式去读取字符串
+        var arr = str.match(reg2);//读出与正则表达式相同的表达式
+        console.log(arr)
+
+        //匹配替换: 将一个字符串中的第一个'o'字母替换成'@'
+        //1. 编写一个正则表达式
+        var newStr = str.replace(reg1,"@");
+        console.log(newStr)
+    </script>
+</body>
+</html>

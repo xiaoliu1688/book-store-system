@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>事件驱动</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--目标1:点击按钮，就将上方的字符串反转-->
+        <!--
+            v-on:事件名="函数" 这就是vue绑定事件
+            它还可以简写成 @事件名="函数"
+
+            vue中声明函数是写在"methods"的键值对的值里面
+            语法  "函数名":function(参数列表){函数体},
+            它还可以简写成 函数名(参数列表){函数体}
+        -->
+        <!--
+            目标2: 鼠标在div中移动的时候，获取鼠标所在位置的坐标
+                1. 要给div绑定鼠标移动事件 @mousemove="函数"
+                2. 编写一个函数记录鼠标移动时候的X轴和Y轴坐标
+
+                我们需要注意的是:
+                    1. 绑定事件的时候如果直接写 @mousemove="函数名"默认就会将当前事件传给函数
+                    2. 绑定事件的时候如果写成 @mousemove="函数名($event)"才能将当前事件传给函数
+        -->
+        <div id="i1"  style="width: 400px;height: 400px;border: 1px solid black" @mousemove="recordPosition($event)">{{message}}</div>
+        <button @click="reverseMessage()">反转字符串</button>
+    </div>
+    <script>
+        var vue = new Vue({
+           "el":"#app",
+           "data":{
+               "message":"Hello Vue!"
+           },
+           "methods":{
+               "reverseMessage":function () {
+                    //实现message的反转
+                   //将字符串切割成一个数组
+                   var arr = this.message.split("");
+                    //然后将数组中的元素反转
+                   arr = arr.reverse()
+                   //再将反转过后的数组拼接成一个新的字符串,赋值给message，那么就能反转div的内容了
+                   this.message = arr.join("")
+               },
+               recordPosition(event){
+                    //event表示当前触发的事件
+                   //获取当前事件触发时候的x轴的坐标
+                   var clientX = event.clientX;
+
+                   //获取当前事件触发时候的Y轴的坐标
+                   var clientY = event.clientY;
+
+                   console.log(clientX+","+clientY)
+               }
+           }
+        });
+    </script>
+</body>
+</html>

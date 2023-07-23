@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习</title>
+</head>
+<body>
+    <script>
+        var str = 'one two three four';
+        // 匹配全部空格: 就是匹配空白符
+        var reg1 = /\s/g
+        // 将空格替换为@
+        str = str.replace(reg1,'@');
+        console.log(str)
+
+        var str2 = '今年是2012344年';
+        //匹配至少一个数字: 判断str中是否包含数字
+        //var reg2 = /\d+/  //加号表示有多少个就匹配多少个
+        //str2 = str2.replace(reg2,'abcd')      //相当于将所有的数字替换成abcd
+        var reg2 = /\d{4}/  //表示匹配四个
+        //将数字替换成'abcd'
+        str2 = str2.replace(reg2,'abcd')
+        console.log(str2)
+
+        var str3 = 'I love Java';
+        var str4 = 'Java love me';
+        // 匹配以Java开头
+        var reg3 = /^Java/
+        console.log(reg3.test(str3))
+        console.log(reg3.test(str4))
+
+        //匹配以Java结尾
+        var reg4 = /Java$/
+
+        console.log(reg4.test(str3))
+        console.log(reg4.test(str4))
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格标签</title>
+    <!--用于美化table、th、td标签的css-->
+    <style type="text/css">
+        table,th,td {
+            border-collapse: collapse;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        合并单元格:
+            rowspan: 跨行合并
+            colspan: 跨列合并
+    -->
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>属性</th>
+            <th>级别</th>
+            <th>忍村</th>
+        </tr>
+        <tr>
+            <td>漩涡鸣人</td>
+            <td>风</td>
+            <td>下忍</td>
+            <td>木叶村</td>
+        </tr>
+        <tr>
+            <td>宇智波佐助</td>
+            <td rowspan="2">雷&火</td>
+            <td colspan="2">下忍</td>
+
+        </tr>
+        <tr>
+            <td>我爱罗</td>
+
+            <td>影</td>
+            <td>砂隐村</td>
+        </tr>
+    </table>
+</body>
+</html>

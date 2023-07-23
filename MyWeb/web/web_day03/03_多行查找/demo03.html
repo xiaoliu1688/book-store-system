@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>多行查找</title>
+</head>
+<body>
+    <script>
+        //多行查找: 如果没有使用多行查找，那么你的字符串无论是几行，都会被当成一行匹配
+        var str1 = 'Hello\nWorld!'
+        var str2 = 'Hello'
+
+        //匹配字符串是否以Hello结尾
+        // m表示多行查找
+        var reg = /Hello$/m
+        console.log(reg.test(str1))     //此时的显示为ture因为加上了m，所以默认会多行匹配，所以结尾是hello
+        console.log(reg.test(str2))     //此时显示也为ture因为他是hello结尾的
+    </script>
+</body>
+</html>

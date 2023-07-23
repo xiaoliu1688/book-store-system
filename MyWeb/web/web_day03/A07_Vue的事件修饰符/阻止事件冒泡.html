@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>阻止事件冒泡</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        #outer{
+            width: 500px;
+            height: 500px;
+            background-color: lightskyblue;
+        }
+
+        #inner{
+            width: 200px;
+            height: 200px;
+            background-color: lawngreen;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div id="outer" @click="fn1">
+            <div id="inner" @click.stop="fn2"></div>
+<!--            还有一种方法，在绑定的函数里阻止冒泡
+                在绑定的函数里面调用event.stopPropagation()方法-->
+        </div>
+    </div>
+    <script>
+        var vue = new Vue({
+           "el":"#app",
+           "methods":{
+               fn1(){
+                   console.log("外层的div被点击了...")
+               },
+               fn2(){
+                   console.log("内层的div被点击了...")
+                   // event.stopPropagation();
+               }
+           }
+        });
+    </script>
+</body>
+</html>

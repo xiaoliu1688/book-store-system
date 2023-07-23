@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件渲染</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--
+            目标: flag为true图片就显示，flag为false图片就隐藏
+
+            就得用条件渲染将flag和img标签进行绑定
+                1. v-if: 如果值为false的话，就直接干掉了标签
+                2. v-else: 如果值为true的话，就直接干掉了标签
+            v-if可以单独使用，但是v-else不能单独使用
+
+            v-show: 它也可以进行条件渲染,但是它不是干掉标签，而是使用css里面的display属性设置为none来隐藏标签
+        -->
+        <img src="../../Img/赵金麦.jpg" v-if="flag"/>
+        <img src="../../Img/健康码.jpg" v-else="flag"/>
+        <div v-if="flag">我是你爹</div>
+
+        <img src="../../Img/赵金麦.jpg" height="800" width="560" v-show="flag"/>
+    </div>
+    <script>
+        var vue = new Vue({
+            "el":"#app",
+            "data":{
+                "flag":true
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue的事件修饰符</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--
+            @click.prevent="函数" 表示绑定点击事件，并且阻止当前标签的默认事件
+        -->
+        <a href="https://www.baidu.com" @click="fn1">跳转到百度</a><br/>
+<!--                此默认事件是跳转到href里的网址-->
+
+        <form action="https://www.baidu.com" method="post">
+            用户名<input type="text" name="username"/><br/>
+            <input type="submit" @click.prevent="fn2"/>
+<!--                    阻止提交按钮的默认行为-->
+        </form>
+    </div>
+    <script>
+        var vue = new Vue({
+           "el":"#app",
+           "methods":{
+               fn1(){
+                   console.log("a标签被点击了...")
+                   event.preventDefault();
+               },
+               fn2(){
+                   console.log("提交按钮被点击了...")
+               }
+           }
+        });
+    </script>
+</body>
+</html>

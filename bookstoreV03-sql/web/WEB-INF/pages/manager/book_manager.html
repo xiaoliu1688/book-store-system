@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <base th:href="@{/}"/>
+    <link rel="stylesheet" href="static/css/minireset.css" />
+    <link rel="stylesheet" href="static/css/common.css" />
+    <link rel="stylesheet" href="static/css/cart.css" />
+    <link rel="stylesheet" href="static/css/bookManger.css" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="w">
+        <div class="header-left">
+          <h1>书籍管理界面</h1>
+        </div>
+        <div class="header-right">
+          <a href="./order_manager.html" class="destory"> </a>
+          <a href="bookManager?method=toManagerPage" class="gohome">返回</a>
+        </div>
+      </div>
+    </div>
+    <div class="list">
+      <div class="w">
+        <div class="add">
+          <a href="bookManager?method=toAddPage">添加图书</a>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>图片</th>
+              <th>商品名称</th>
+              <th>价格</th>
+              <th>作者</th>
+              <th>销量</th>
+              <th>库存</th>
+              <th>操作</th>
+            </tr>
+          </thead>
+          <tbody th:if="${#lists.isEmpty(bookList)}">
+            <tr>
+              <td colspan="7">
+                图书列表为空，请添加图书！！
+              </td>
+            </tr>
+          </tbody>
+
+          <tbody th:unless="${#lists.isEmpty(bookList)}">
+            <tr th:each="book : ${bookList}">
+              <td>
+                <img th:src="${book.imgPath}" alt="" />
+              </td>
+              <td th:text="${book.bookName}">活着</td>
+              <td th:text="${book.price}">
+                100.00
+              </td>
+              <td th:text="${book.author}">余华</td>
+              <td th:text="${book.sales}">200</td>
+              <td th:text="${book.stock}">400</td>
+              <td>
+                <a th:href="@{/bookManager(method='change',id=${book.bookId})}">修改</a><a th:href="@{/bookManager(method='removeBook',id=${book.bookId})}" class="del">删除</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="static/uploads/huozhe.jpg" alt="" />
+              </td>
+              <td>活着</td>
+              <td>
+                100.00
+              </td>
+              <td>余华</td>
+              <td>200</td>
+              <td>400</td>
+              <td>
+                <a href="pages/manager/book_edit.html">修改</a><a href="" class="del">删除</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </body>
+</html>

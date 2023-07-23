@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS的数组</title>
+</head>
+<body>
+<script>
+  //1. 创建一个数组,JS中的数组长度不是固定的,并且存放的数据类型也不是固定的
+  var arr = [1,2,3,"a","奥拉夫"]
+  arr[5] = "奥巴马"
+
+  //reverse方法是将数组中的内容进行反转
+  //arr.reverse()
+
+  //join方法是将数组中的元素通过分隔符拼接成一个字符串
+  //console.log(arr.join("&"))
+
+  //字符串也有一个方法，可以通过分隔符拆分成数组，这个方法就是split
+  /*var str = arr.join("&");
+  var arr2 = str.split("&");
+  console.log(arr2)*/
+
+  //pop方法是弹出数组中的最后一个元素
+  console.log(arr.pop())
+
+  //2. 对于数组而言最重要的就是遍历
+  for(i = 0;i< arr.length;i++){
+    console.log(arr[i])
+  }
+
+</script>
+</body>
+</html>

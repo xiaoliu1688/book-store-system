@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="UTF-8">
+    <title>绑定标签属性</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="ap">
+
+        <input type="text" name="inp" :value="username"/>
+        <input type="text" name="inp" v-bind:value="username"/>
+    </div>
+        <!--
+            目标使用vue绑定输入框的内容(其实就是input的value属性)
+            绑定属性的方式:    v-bind:属性名 = "要绑定的数据模型"
+            它还可以省略v-bind简写成 :属性名 = "要绑定的数据模型"
+        -->
+    <script>
+        var vue1 = new Vue({
+            "el":"#ap",
+            "data":{
+                "username":"李白"
+            }
+        });
+    </script>
+</body>
+</html>

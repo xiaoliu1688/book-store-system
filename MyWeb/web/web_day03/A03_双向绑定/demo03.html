@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!--
+        双向绑定的适用场景:
+            绑定表单的value
+        双向绑定的语法  v-model:value="数据模型的名字"
+        它可以简写成 v-model="数据模型的名字"
+
+        v-model.trim会自动去掉左右的空格
+        双向绑定的意思就是当表单的内容改变的时候，数据模型也会改变
+    -->
+    <div id="app">
+        <input type="text" name="username" v-model.trim="username"/>
+    </div>
+    <script>
+        var vue = new Vue({
+            "el":"#app",
+            "data":{
+                "username":"张三疯"
+            }
+        });
+    </script>
+</body>
+</html>

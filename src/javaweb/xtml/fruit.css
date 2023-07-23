@@ -1,0 +1,39 @@
+#content{
+    width: 80%;
+    height: 100%;
+    margin-left: 10%;
+    border: 1px solid red;
+    background-color: bisque;
+}
+.img{
+    width: 24px;
+    height: 24px;
+}
+#main{
+    width: 100%;
+    margin-top: 10%;
+}
+#table_fruit tr,#table_fruit th,#table_fruit td{
+    border: 1px solid red;
+    line-height: 28px;
+    font-size: 16px;
+    font-family: "黑体";
+    font-weight: lighter;/*变细*/
+    text-align: center;/*文字居中*/
+    color:forestgreen;
+}
+#table_fruit{
+    border-collapse: collapse;/*边框合并为一条线*/
+    width: 60%;
+    margin-left: 20%;
+
+}
+div{
+    position: relative;
+    float: left;
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: burlywood;
+}

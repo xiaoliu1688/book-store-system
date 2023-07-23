@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>综合案例</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app" >
+        <table border="1" cellspacing="0" width="500px">
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>专业</th>
+                <th>删除</th>
+            </tr>
+            <tr v-for="(user,index) in userList">
+                <td>{{user.empId}}</td>
+                <td>{{user.empName}}</td>
+                <td>{{user.empAge}}</td>
+                <td>{{user.empSubject}}</td>
+                <td>
+                    <button @click="deleteUser(index)">删除</button>
+                </td>
+            </tr>
+
+        </table>
+
+        <form action="https://www.baidu.com" method="post">
+
+            编号<input type="text" v-model="user.empId" name="empId"><br/>
+            姓名<input type="text" v-model="user.empName" name="empName"><br/>
+            年龄<input type="text" v-model="user.empAge" name="empAge"><br/>
+            专业<input type="text" v-model="user.empSubject" name="empSubject"><br/>
+            <input type="submit"  value="添加数据" v-on:click.prevent="addUser">
+        </form>
+    </div>
+    <script>
+        var vue = new Vue({
+           "el":"#app",
+           "data":{
+               "user":{}
+               ,
+               "userList":[
+                   {
+                       "empId":11,
+                       "empName":"张三",
+                       "empAge":20,
+                       "empSubject":"Java"
+                   },{
+                       "empId":22,
+                       "empName":"李四",
+                       "empAge":21,
+                       "empSubject":"PHP"
+                   },{
+                       "empId":33,
+                       "empName":"王五",
+                       "empAge":22,
+                       "empSubject":"C++"
+                   }
+               ]
+           },
+           "methods": {
+               "addUser":function (){
+                    this.userList.push(this.user);
+                   this.user = {};
+               },
+               deleteUser(i){
+                   this.userList.splice(i,1);
+               }
+               //1. 获取输入框中的用户信息  就是this.user
+               //2. 将用户信息加入到数组中
+
+               //添加完要清空表单内容
+
+
+               //删除其实是从数组中根据下标移除一个元素
+           }
+
+
+        });
+    </script>
+</body>
+</html>

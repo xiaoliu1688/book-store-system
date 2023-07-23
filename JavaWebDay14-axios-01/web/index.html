@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en xmlns:th=http://www.thymeleaf.org">
+<head>
+    <base th:href="@{/}"/>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/axios.js"></script>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+
+    <div id="test1">
+        <a href="demo01">发送同步请求</a><br/>
+        <a href="javascript:;" @click="sendQuest" >发送异步请求</a><br/>
+        <a href="javascript:;" @click="sendQuestJson" >使用json发异步请求</a>
+        <span>{{message}}</span>
+    </div>
+
+
+
+    <script>
+        var vue = new Vue({
+            "el":"#test1",
+            "data":{
+                "message":""
+
+            },
+            "methods":{
+                //此处是声明了一个点击事件方法
+                sendQuest(){
+                    axios({
+                        "method":"Post",    //表示这是发的异步请求什么类型post还是get
+                        "url":"demo01",     //表示异步求情发送的路径
+                        "params":{          //表示异步请求所携带的参数
+                            "username":"张三",
+                            "password":"123456"
+                        }
+
+                    }).then(response => {
+                        //总体可以理解为就是服务器的响应发给axios引擎，然后响应报文就是response
+                        //then是处理异步请求成功的响应数据
+                        //response就是服务器的响应数据，是json类型的
+                        //response.data就是响应体的数据
+                        console.log(response)
+                        this.message = response.data
+                    })
+                    .catch(function (error){
+                        //error是请求失败的错误描述，比如状态码404等
+                        //error.response是请求失败时错误的响应信息
+                        console.log(error)
+                    })
+                },
+
+                sendQuestJson(){
+                    axios({
+                        "method":"post",
+                        "url":"demo02",
+                        "data":{
+                            "userName":"卡特琳娜",
+                            "password":"123456",
+                            "id":1,
+                            "nickName":"不详之刃"
+                        }   //发送json格式的参数用data
+                    }).then(function (response){
+                        console.log(response.data)
+                    })
+                }
+
+            }
+        })
+    </script>
+
+</body>
+</html>

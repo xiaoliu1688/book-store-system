@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>this的介绍</title>
+</head>
+<body>
+      <script>
+        var name = "周杰棍"
+        this.name = "双杰伦"
+
+        function showName() {
+          console.log(this.name)
+        }
+
+        showName();
+
+        // this在当前函数外是指当前文档，函数内是指当前对象
+        var obj1 = {
+          "name": "奥拉夫",
+          "showName": function () {
+            console.log(this.name)
+          }
+
+        }
+        obj1.showName();
+      </script>
+</body>
+</html>
